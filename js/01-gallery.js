@@ -29,11 +29,14 @@ divGallery.addEventListener("click", (e) => {
   }
   // Якщо виводиться картинка
   const urlBigImage = e.target.getAttribute("data-source");
-  const picture = basicLingthbox.create(`<img src ="${urlBigImage}" width = "800" heigth = "600">`);
-  picture.show();
+  const instance = basicLingthbox.create(`<img src ="${preview}" width = "800" heigth = "600">`);
+  instance.show();
+
+
 });
 
 
+console.log(basicLightbox);
 
 
-// console.log(items);
+
