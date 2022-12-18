@@ -7,9 +7,8 @@ const divGallery = document.querySelector('.gallery');
 function createGalleryLayout(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<a class="gallery__item" href="large-image.jpg" onclick = "return false">
+      return `<a class="gallery__item" href="${original}" onclick = "return false">
   <img class="gallery__image" src="${preview}"
-      data-source="${original}"
       alt="${description}" />
 </a>`;
     })
@@ -18,17 +17,8 @@ function createGalleryLayout(galleryItems) {
 
 divGallery.insertAdjacentHTML('afterbegin', createGalleryLayout(galleryItems));
 
-divGallery.addEventListener('click', e => {
-  e.preventDefault();
-  if (e.target.nodeName !== 'IMG') {
-    return;
-  }
-    
-    
-    let gallery = new simpleLightbox('.gallery a', {
-        capsionsData: 'alt', captionPosition: 'bottom', captionDelay: 250, disableRightClick: true,
-  scrollZoom: false, enableKeyboard: true,
-    });
+let gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
 });
-
-console.log(simpleLightbox);
